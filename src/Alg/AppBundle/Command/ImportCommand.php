@@ -61,7 +61,7 @@ class ImportCommand extends ContainerAwareCommand
             $em->persist($person);
             $em->flush();
 
-            $output->writeln($row[1]);
+            $output->writeln(sprintf("Person %s done !", $row[1]));
         }
 
     }
