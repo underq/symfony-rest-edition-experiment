@@ -101,8 +101,6 @@ class PersonController extends FOSRestController
             return $this->routeRedirectView('get_person', array('id' => $person->getId()), $statusCode);
         }
 
-        die(var_dump($form->getErrorsAsString()));
-
         return $form;
     }
 
