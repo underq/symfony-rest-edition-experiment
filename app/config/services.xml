@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="alg_app_bundle.form.person"
+             class="Alg\AppBundle\Form\PersonType">
+            <tag name="form.type" alias="person" />
+        </service>
+    </services>
+
+</container>

@@ -1,0 +1,33 @@
+TESTME
+Benjamin Delangue
+09/03/2015
+
+Cheminement :
+-------------
+
+Installation et configuration de sf
+* Installation de la stack Symfony REST edition (https://github.com/gimler/symfony-rest-edition)
+* Composer install
+* Lancement du serveur : php app/console server:run 192.168.42.42:8000
+* Doc sur doctrine http://symfony.com/fr/doc/current/book/doctrine.html
+* Configuration du parameters.yml
+
+Création de l'entité, du controller, du WS
+* Création du bundle AlgAppBundle php app/console generate:bundle
+* Création de la base de donnée php app/console doctrine:database:create
+* Création de l'entité doctrine php app/console doctrine:generate:entity --entity="AlgAppBundle:Person"
+* Ajout des informations de mapping dans la class Persons sous forme d'annotation (http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/annotations-reference.html)
+* Création de la table Person dans la BDD php app/console doctrine:schema:update --force
+* Ajout de la proprieté $siren dans l'entité Persons
+* Modification de la BDD php app/console doctrine:schema:update --force (Un passage en prod aurai été mieux géré en utilisant les migrations doctrine)
+* Configuration des routes
+* Création des actions GET, POST, ... dans le controller PersonController.php
+* Création d'un form type + Mise en place d'annotation de validation
+* Ajout des annotations Nelmio dans mon controller pour générer la doc + Visuel.
+
+Import du fichier csv
+* Faut-il valider ou non les données lors de l'import csv ?
+** Décision de ne pas valider les données, et de réutiliser le formulaire du WS POST (au détriment des perfs)
+* Ajout du form Person au service disponible dans sf.
+* Faut-il refactorisé le WS pour éviter la duplication de code ? crée un composant métier ?
+** Choix de ne pas crée de composant métier.
